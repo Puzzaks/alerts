@@ -1,0 +1,42 @@
+name: alerts
+description: "Ukraine Air Alerts monitor & PAIOS Mesh provider"
+publish_to: 'none'
+
+version: 1.1.5+26111313
+
+environment:
+  sdk: ^3.0.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  provider: ^6.0.5
+  # Capped below 1.9.0: dynamic_color 1.9.0 relies on AGP 9 built-in Kotlin and
+  # fails to compile on AGP 8.x (`Unresolved reference: kotlin { compilerOptions }`).
+  dynamic_color: ">=1.8.1 <1.9.0"
+  http: ^1.2.2
+  shared_preferences: ^2.3.2
+  m3x:
+    path: ../demo/packages/m3x
+  m3x_ui:
+    path: ../demo/packages/m3x_ui
+  m3x_core:
+    path: ../demo/packages/m3x_core
+  m3x_dict:
+    path: ../demo/packages/m3x_dict
+  m3x_mesh:
+    path: ../demo/packages/m3x_mesh
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - pubspec.yaml
+    - CHANGELOG.md
+    - assets/mesh_tools.json
+    - assets/translations/

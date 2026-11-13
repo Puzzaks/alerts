@@ -1,0 +1,51 @@
+[
+  {
+    "name": "alerts_get_summary",
+    "app": "alerts",
+    "packageName": "page.puzzak.alerts",
+    "description": "Returns a compact nationwide overview of Ukraine-wide air raid and civil defense alert status and counts (total active count, affected oblasts, breakdown by alert type, and last update timestamp).",
+    "parameters": {
+      "type": "object",
+      "properties": {}
+    }
+  },
+  {
+    "name": "alerts_check_region",
+    "app": "alerts",
+    "packageName": "page.puzzak.alerts",
+    "description": "Checks whether an air raid or civil defense alert is currently active in a specific Ukrainian oblast, raion, or city (e.g. 'Kyiv', 'Харків', 'Odesa'), or pass 'Ukraine' for a nationwide summary. Omit region to use the saved default region.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "region": {
+          "type": "string",
+          "description": "Optional Ukrainian or English oblast, raion, or city name (e.g. 'Kyiv', 'Харків', 'Odesa'), or 'Ukraine' for a nationwide summary. Falls back to the saved default region if omitted."
+        }
+      }
+    }
+  },
+  {
+    "name": "alerts_list_active",
+    "app": "alerts",
+    "packageName": "page.puzzak.alerts",
+    "description": "Returns a compact paginated list of currently active alerts in Ukraine, optionally filtered by alert_type.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "alert_type": {
+          "type": "string",
+          "enum": ["air_raid", "artillery_shelling", "urban_fights", "chemical", "nuclear"],
+          "description": "Optional filter by alert type."
+        },
+        "limit": {
+          "type": "integer",
+          "description": "Maximum number of alerts to return (default 10, clamped 1..15)."
+        },
+        "offset": {
+          "type": "integer",
+          "description": "Optional 0-based offset for pagination (default 0)."
+        }
+      }
+    }
+  }
+]
